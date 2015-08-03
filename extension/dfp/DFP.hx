@@ -1,4 +1,4 @@
-package extension;
+package extension.dfp;
 
 #if android
 import openfl.utils.JNI;

@@ -1,4 +1,4 @@
-package org.haxe.extension;
+package org.haxe.extension.dfp;
 
 
 import android.content.Intent;
@@ -18,6 +18,7 @@ import com.google.android.gms.ads.doubleclick.PublisherAdView;
 import com.google.android.gms.ads.InterstitialAd;
 
 import org.haxe.lime.HaxeObject;
+import org.haxe.extension.Extension;
 
 /* 
 	You can use the Android Extension class in order to hook
