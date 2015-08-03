@@ -320,6 +320,7 @@ public class DFP extends Extension {
                 	}
                 	
                 	public void onAdFailedToLoad(int errorCode){
+                		Log.i("trace","extension-dfp : Ad loading error code : " + errorCode);
                 		if(mIntersticialListener != null && mInterstitialError != null)
                 			mIntersticialListener.call1(mInterstitialError, errorCode);
                 	}

@@ -6,6 +6,6 @@
 	<!-- Use the following for an Android Java extension, not needed otherwise -->
 	
 	<dependency name="DFP" path="dependencies/android" if="android" />
-	<android extension="org.haxe.extension.DFP" />
+	<android extension="org.haxe.extension.dfp.DFP" />
 	
 </project>
