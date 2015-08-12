@@ -1,12 +1,12 @@
 {
   "name": "extension_dfp",
-  "url": "",
+  "url": "https://github.com/TBaudon/exension-dfp",
   "license": "MIT",
   "tags": [],
   "description": "",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "releasenote": "",
-  "contributors": [""],
+  "contributors": ["TBaudon"],
   "dependencies": {
 
   }
