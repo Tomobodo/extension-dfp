@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
 	
-	<ndll name="extension_dfp" unless="android" />
+    <section if="ios">
+        <ndll name="extension_dfp"/>
+        
+        <ios linker-flags="-ObjC -lGoogleMobileAds" />
+        
+        <dependency name="AdSupport.framework" />
+        <dependency name="AudioToolbox.framework" />
+        <dependency name="AVFoundation.framework" />
+        <dependency name="CoreGraphics.framework" />
+        <dependency name="CoreMedia.framework" />
+        <dependency name="CoreTelephony.framework" />
+        <dependency name="EventKit.framework" />
+        <dependency name="EventKitUI.framework" />
+        <dependency name="MessageUI.framework" />
+        <dependency name="StoreKit.framework" />
+        <dependency name="SystemConfiguration.framework" />
+        
+    </section>
 	
-	<!-- Use the following for an Android Java extension, not needed otherwise -->
-	
-	<dependency name="DFP" path="dependencies/android" if="android" />
-	<android extension="org.haxe.extension.dfp.DFP" />
+    <section if="android">
+        <dependency name="DFP" path="dependencies/android"/>
+        <android extension="org.haxe.extension.dfp.DFP" />
+    </section>
 	
 </project>
