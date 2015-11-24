@@ -3,10 +3,7 @@
 	<include name="${HXCPP}/build-tool/BuildCommon.xml"/>
 	
 	<files id="iphone">
-		
 		<compilerflag value="-Iinclude"/>
-        <compilerflag value="-F../dependencies/ios/" />
-        
         <file name="src/extensionDFP.mm"/>
 	</files>
 	
@@ -15,15 +12,14 @@
 	<set name="SLIBEXT" value=".so" if="webos"/>
 	
 	<set name="DEBUGEXTRA" value="-debug" if="fulldebug" />
-    
-    <!--<lib name="../dependencies/ios/libGoogleMobileAds.a" if="iphone"/>-->
 	
 	<target id="NDLL" output="${LIBPREFIX}extension_dfp${MSVC_LIB_VERSION}${DEBUGEXTRA}${LIBEXTRA}" tool="linker" toolid="${STD_MODULE_LINK}">
 		
 		<outdir name="../ndll/${BINDIR}"/>
 		<ext value=".ndll" if="windows || mac || linux"/>
-		
+        
         <section if="iphone" >
+            <lib name="../dependencies/ios/libGoogleMobileAds.a" />
             <files id="iphone" />
         </section>
 		
