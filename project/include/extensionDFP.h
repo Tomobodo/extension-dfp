@@ -19,7 +19,8 @@
 
 namespace extension_dfp {
     
-    DFPBannerView* banner;
+    NSMutableDictionary* banners;
+    
     DFPInterstitial* interstitial;
     InterstitialDelegate* interstitialDelegate;
     
@@ -28,16 +29,16 @@ namespace extension_dfp {
     AutoGCRoot* onAdClosedCB;
     
     void initAd(value adId, value hPos, value vPos, value size, value testMode);
-    void showAd();
-    void hideAd();
+    void showAd(value adId);
+    void hideAd(value adId);
     
     void initInterstitial(value adId, value testMode);
     void showInterstitial();
     void setInterstitialListeners(value onLoaded, value onFailed, value onClosed);
     
     DEFINE_PRIM(initAd, 5);
-    DEFINE_PRIM(showAd, 0);
-    DEFINE_PRIM(hideAd, 0);
+    DEFINE_PRIM(showAd, 1);
+    DEFINE_PRIM(hideAd, 1);
     
     DEFINE_PRIM(initInterstitial, 2);
     DEFINE_PRIM(showInterstitial, 0);

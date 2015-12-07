@@ -28,7 +28,14 @@
 namespace extension_dfp {
     
     void initAd(value adId, value hPos, value vPos, value size, value testMode){
+        if(banners == NULL){
+            NSLog(@"init banners");
+            banners = [[NSMutableDictionary alloc] init];
+        }
+        
         NSString* adUnitID = [[NSString alloc] initWithUTF8String:val_string(adId)];
+        
+        DFPBannerView* banner;
         
         int bannerSize = val_int(size);
         int bannerHpos = val_int(hPos);
@@ -90,14 +97,22 @@ namespace extension_dfp {
         banner.rootViewController = getRootView();
 
         [banner loadRequest:[DFPRequest request]];
+        
+        [banners setValue:banner forKey:adUnitID];
     }
     
-    void showAd(){
-        [getRootView().view addSubview:banner];
+    void showAd(value adId){
+        NSString* adUnitID = [[NSString alloc] initWithUTF8String:val_string(adId)];
+        DFPBannerView* banner = [banners valueForKey:adUnitID];
+        if(banner != NULL)
+            [getRootView().view addSubview:banner];
     }
     
-    void hideAd(){
-        [banner removeFromSuperview];
+    void hideAd(value adId){
+        NSString* adUnitID = [[NSString alloc] initWithUTF8String:val_string(adId)];
+        DFPBannerView* banner = [banners valueForKey:adUnitID];
+        if(banner != NULL)
+            [banner removeFromSuperview];
     }
     
     void initInterstitial(value adId, value testMode){

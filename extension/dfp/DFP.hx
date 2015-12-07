@@ -23,19 +23,19 @@ class DFP {
 		#end
 	}
 	
-	public static function showAd() {
+	public static function showAd(adId : String) {
 		#if android
 		jni_showAd();
 		#elseif ios
-		objC_showAd();
+		objC_showAd(adId);
 		#end
 	}
 	
-	public static function hideAd() {
+	public static function hideAd(adId : String) {
 		#if android
 		jni_hideAd();
 		#elseif ios
-		objC_hideAd();
+		objC_hideAd(adId);
 		#end
 	}
 	
@@ -92,8 +92,8 @@ class DFP {
 	#elseif ios
 	
 	static var objC_initAd = Lib.load("extension_dfp", "initAd", 5);
-	static var objC_showAd = Lib.load("extension_dfp", "showAd", 0);
-	static var objC_hideAd = Lib.load("extension_dfp", "hideAd", 0);
+	static var objC_showAd = Lib.load("extension_dfp", "showAd", 1);
+	static var objC_hideAd = Lib.load("extension_dfp", "hideAd", 1);
 	
 	static var objC_initInterstitial = Lib.load("extension_dfp", "initInterstitial", 2);
 	static var objC_showInterstitial = Lib.load("extension_dfp", "showInterstitial", 0);
